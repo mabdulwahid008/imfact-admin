@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { approveUser } from '../services/approveUser';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Usertable({ users }) {
- 
+    const [t] = useTranslation("global");
     return (
         <div className="overflow-x-auto">
             <table className="min-w-full ">
@@ -23,30 +25,10 @@ function Usertable({ users }) {
                     ))}
                 </tbody>
             </table>
-
-            {/* Mobile View */}
-            {/* <div className="block md:hidden">
-                {data.map((item, index) => (
-                    <div key={index} className="border rounded-lg mb-4 p-4 bg-white shadow-sm">
-                        <div className="flex justify-between mb-2">
-                            <span className="text-themeBlack-200 font-semibold">Name:</span>
-                            <span>{item.name}</span>
-                        </div>
-                        <div className="flex justify-between mb-2">
-                            <span className="text-themeBlack-200 font-semibold">Email:</span>
-                            <span>{item.email}</span>
-                        </div>
-                        <div className="flex justify-between mb-2">
-                            <span className="text-themeBlack-200 font-semibold">Phone:</span>
-                            <span>{item.phone}</span>
-                        </div>
-                        <div className="flex justify-between">
-                            <span className="text-themeBlack-200 font-semibold">Role:</span>
-                            <span>{item.role}</span>
-                        </div>
-                    </div>
-                ))}
-            </div> */}
+            {users.length === 0 && 
+                    <p className='w-full text-center text-sm text-themeBlack-200 font-medium py-3 border-themeGrey-100 border-b-[1px]'>
+                        {t("nodata")}
+                    </p>}
         </div>
     )
 }
@@ -91,9 +73,9 @@ const TableRow = ({ item, index }) => {
                 </button>
             </td>
             <td className='px-4 py-1.5 flex-1 flex gap-1'>
-                <button className='outline-none min-w-2 text-sm text-white bg-themePink rounded-md px-4 py-2'>
-                    Edit
-                </button>
+                <Link to={`/user/${item.nickname}/${item._id}`} className='outline-none min-w-2 text-sm text-white bg-themePink rounded-md px-4 py-2'>
+                    View
+                </Link>
                 <button className='outline-none text-sm text-white bg-red-400 rounded-md px-4 py-2'>
                     Delete
                 </button>

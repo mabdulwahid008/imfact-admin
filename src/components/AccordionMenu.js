@@ -27,7 +27,7 @@ const AccordionMenu = ({ icon, routes }) => {
     return (
         <div ref={ref}>
 
-            <div className={`flex justify-between items-center ${(isOpen) ? 'text-themePink' : 'text-white'} cursor-pointer transition-all ease duration-300`} onClick={toggleMenu}>
+            <div className={`flex justify-between items-center ${(isOpen) ? 'text-themePink' : 'text-white'} cursor-pointer transition-all ease-in duration-500`} onClick={toggleMenu}>
                 <div className="flex gap-2.5 items-center">
                     {icon}
                     <h3 className="text-base">{routes.title}</h3>
@@ -52,12 +52,12 @@ const AccordionMenu = ({ icon, routes }) => {
             </div>
 
             <div
-                className={`flex justify-start items-stretch gap-2 overflow-hidden ml-[30px] py-1 transition-max-height duration-500 ease ${isOpen ? "max-h-screen" : "max-h-0"
+                className={`flex justify-start items-stretch gap-2 overflow-hidden ml-[30px] py-1 transition-all duration-500 ease-in-out ${isOpen ? "max-h-screen" : "max-h-0"
                     }`}
 
             >   <div className="w-[1px] border-[0px] border-l-[1px]  border-white"></div>
 
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
                     {routes.routes.map((route, index) => (
                         <NavLink to={`${route.path}`} className={'text-white hover:text-themePink text-sm'}>{route.title}</NavLink>
                     ))}

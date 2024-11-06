@@ -46,6 +46,11 @@ function Users() {
         getData()
     }, [pageNumber, pageSize, searchText])
 
+    useEffect(() => {
+        setPageNumber(1)
+    }, [pageSize])
+
+
     return (
         <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 shadow-sm'>
             <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0'>{title}</h2>

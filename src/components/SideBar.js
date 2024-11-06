@@ -1,6 +1,8 @@
 import React from 'react'
 import AccordionMenu from './AccordionMenu'
 import { LuHome } from "react-icons/lu";
+import { FaList, FaUserShield, FaUserTag } from "react-icons/fa";
+import { FaRegRectangleList } from "react-icons/fa6";
 
 function SideBar() {
     return (
@@ -24,7 +26,59 @@ function SideBar() {
                     }}
                 />
                 <AccordionMenu
-                    icon={<LuHome className='text-lg' />}
+                    icon={<FaRegRectangleList className='text-lg' />}
+                    routes={{
+                        title: 'Manage Orders',
+                        routes: [
+                            {
+                                title: 'All Orders',
+                                path: '/all-orders'
+                            },
+                            {
+                                title: 'Active Orders',
+                                path: '/active-orders'
+                            },
+                            {
+                                title: 'Submitted Orders',
+                                path: '/submitted-orders'
+                            },
+                            {
+                                title: 'Disputed Orders',
+                                path: '/disputed-orders'
+                            }
+                        ]
+                    }}
+                />
+                <AccordionMenu
+                    icon={<FaList className='text-lg' />}
+                    routes={{
+                        title: 'Manage Campaigns',
+                        routes: [
+                            {
+                                title: 'All Campaigns',
+                                path: '/all-campaigns'
+                            },
+                            {
+                                title: 'Recruiting Campaigns',
+                                path: '/recruiting-campaigns'
+                            },
+                            {
+                                title: 'Active Campaigns',
+                                path: '/active-campaigns'
+                            },
+                            {
+                                title: 'Approving Campaigns',
+                                path: '/approving-campaigns'
+                            },
+                            {
+                                title: 'Buffer Campaigns',
+                                path: '/buffer-campaigns'
+                            }
+                        ]
+                    }}
+                />
+                <AccordionMenu
+                    icon={<FaUserShield className='text-lg' />}
                     routes={{
                         title: 'Manage Customers',
                         routes: [
@@ -40,7 +94,7 @@ function SideBar() {
                     }}
                 />
                 <AccordionMenu
-                    icon={<LuHome className='text-lg' />}
+                    icon={<FaUserTag className='text-lg' />}
                     routes={{
                         title: 'Manage Creators',
                         routes: [
