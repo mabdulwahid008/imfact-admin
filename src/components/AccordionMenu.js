@@ -30,7 +30,7 @@ const AccordionMenu = ({ icon, routes }) => {
             <div className={`flex justify-between items-center ${(isOpen) ? 'text-themePink' : 'text-white'} cursor-pointer transition-all ease-in duration-500`} onClick={toggleMenu}>
                 <div className="flex gap-2.5 items-center">
                     {icon}
-                    <h3 className="text-base">{routes.title}</h3>
+                    <h3 className="text-sm">{routes.title}</h3>
                 </div>
                 <div>
                     <svg
@@ -57,7 +57,7 @@ const AccordionMenu = ({ icon, routes }) => {
 
             >   <div className="w-[1px] border-[0px] border-l-[1px]  border-white"></div>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 py-0.5">
                     {routes.routes.map((route, index) => (
                         <NavLink to={`${route.path}`} className={'text-white hover:text-themePink text-sm'}>{route.title}</NavLink>
                     ))}

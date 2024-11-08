@@ -9,6 +9,7 @@ import { PLATFORMS } from '../constants'
 import { formateDate } from '../utils/formateDate'
 import Orders from '../components/Orders'
 import Campaigns from '../components/Campaigns'
+import Loader from '../components/Loader'
 
 function UserDetail() {
   const [user, setUser] = React.useState(null)
@@ -67,7 +68,7 @@ function UserDetail() {
             </>}
           </div>
           <div className='flex justify-start items-start gap-5'>
-            <div className='w-1/3 flex flex-col gap-3'>
+            <div className='w-1/4 flex flex-col gap-3'>
               <UserCard user={user} />
               <Accordion>
                 {({ isOpen, toggleAccordion }) => (
@@ -188,7 +189,7 @@ function UserDetail() {
           </div>
         </div>
         :
-        <>Loading</>
+        <Loader />
       }
     </>
 

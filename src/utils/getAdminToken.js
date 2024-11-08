@@ -1,3 +1,3 @@
 export const getAdminToken = () => {
-    return localStorage.getItem('token') || '';
+    return localStorage.getItem('admintoken') || '';
 }

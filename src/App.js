@@ -1,36 +1,66 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import MainLayout from './layout/MainLayout'
 import Users from './pages/Users'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { ToastContainer, Zoom } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import UserDetail from './pages/UserDetail'
-import OrderList from './pages/OrderList'
-import CampaignList from './pages/CampaignList'
+import { ROUTES } from './constants/route'
+import Login from './pages/Login'
+import Loader from './components/Loader'
+import { getMyProfile } from './services/employeeServices'
 
 function App() {
+  const [user, setUser] = React.useState(null)
+
+  useLayoutEffect(() => {
+    if(localStorage.getItem('admintoken')){
+        const getME = async () => {
+            const data = await getMyProfile();
+            setUser(data);
+        }
+        getME()
+    }
+  }, [])
+
+  if (!localStorage.getItem('admintoken'))
+    return (
+      <Routes>
+        <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    )
+
+
+  else if (!user && localStorage.getItem('admintoken'))
+    return (
+      <div className='h-screen'>
+        <Loader />
+      </div>
+  )
+
+  if(user)
   return (
     <MainLayout>
       <Routes>
-        <Route path="/" element={<>Hello</>} />
-        <Route path="/customers-list" element={<Users />} />
-        <Route path="/pending-customers" element={<Users />} />
-        <Route path="/creators-list" element={<Users />} />
-        <Route path="/pending-creators" element={<Users />} />
-        <Route path="/user/:nickname/:_id" element={<UserDetail />} />
-
-        <Route path="/all-orders" element={<OrderList />} />
-        <Route path="/active-orders" element={<OrderList />} />
-        <Route path="/submitted-orders" element={<OrderList />} />
-        <Route path="/disputed-orders" element={<OrderList />} />
-
-        <Route path="/all-campaigns" element={<CampaignList />} />
-        <Route path="/recruiting-campaigns" element={<CampaignList />} />
-        <Route path="/active-campaigns" element={<CampaignList />} />
-        <Route path="/approving-campaigns" element={<CampaignList />} />
-        <Route path="/buffer-campaigns" element={<CampaignList />} />
-
-
+        {ROUTES.map((section) => (
+          <>
+            {section.routes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.component ? route.component : section.component}
+              />
+            ))}
+            {section.nested?.routes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.component ? route.component : section.component}
+              />
+            ))}
+          </>
+        )
+        )}
       </Routes>
       <ToastContainer transition={Zoom} position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
     </MainLayout>

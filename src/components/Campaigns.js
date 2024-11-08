@@ -18,7 +18,11 @@ function Campaigns({ userId }) {
     const laction = useLocation()
     let title = ''
     let status = ''
-    if(laction.pathname.includes('/recruiting')){
+    if(laction.pathname.includes('/pending')){
+        title = t('pendingCampaigns')
+        status = 'Paid'
+    }
+    else if(laction.pathname.includes('/recruiting')){
         title = t('recruitingCampaings')
         status = 'Recruitment Period'
     }
@@ -33,6 +37,10 @@ function Campaigns({ userId }) {
     else if(laction.pathname.includes('/buffer')){
         title = t('bufferCampaings')
         status = 'Buffer period'
+    }
+    else if(laction.pathname.includes('/cancelled')){
+        title = t('cancelledCampaigns')
+        status = 'Cancelled'
     }
     else {
         title = t('campaigns')

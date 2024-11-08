@@ -11,12 +11,12 @@ function Usertable({ users }) {
             <table className="min-w-full ">
                 <thead>
                     <tr className="text-left border-y-[1px] border-themeGrey-100">
-                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">Serial</th>
-                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">Nickname</th>
-                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">Email</th>
-                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">Phone</th>
-                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">Status</th>
-                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">Action</th>
+                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t('Serial')}</th>
+                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t('Nickname')}</th>
+                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t('email')}</th>
+                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t('phone')}</th>
+                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t('status')}</th>
+                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t('action')}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +38,7 @@ export default Usertable
 
 const TableRow = ({ item, index }) => {
     const [isOn, setIsOn] = useState(item.approved);
+    const [t] = useTranslation("global");
 
     const approveorUnapprove = async() => {
         try {
@@ -74,11 +75,8 @@ const TableRow = ({ item, index }) => {
             </td>
             <td className='px-4 py-1.5 flex-1 flex gap-1'>
                 <Link to={`/user/${item.nickname}/${item._id}`} className='outline-none min-w-2 text-sm text-white bg-themePink rounded-md px-4 py-2'>
-                    View
+                    {t('View')}
                 </Link>
-                <button className='outline-none text-sm text-white bg-red-400 rounded-md px-4 py-2'>
-                    Delete
-                </button>
             </td>
         </tr>
     )
