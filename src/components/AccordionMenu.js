@@ -1,54 +1,61 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const AccordionMenu = ({ icon, routes }) => {
-    const [isOpen, setIsOpen] = useState(false); // Control the accordion state
-   
+    const [isOpen, setIsOpen] = useState(false); 
+    const [active, setActive] = useState(false);
+
     const ref = useRef()
     const location = useLocation();
+    const navigate = useNavigate();
     const toggleMenu = () => {
-        setIsOpen(!isOpen);
+        if(routes.routes.length === 1){
+            navigate(`${routes.routes[0].path}`)
+            return;
+        }
+        setIsOpen(true);
     };
 
+
     useEffect(() => {
-        const handleClick = (event) => {
-          if (ref.current && ref.current.contains(event.target) ) {
+        if (routes.routes.some(route => location.pathname.includes(route.path))) {
+            setActive(true);
+            if(routes.routes.length > 1)
             setIsOpen(true);
-          } else {
+        } else {
+            setActive(false);
             setIsOpen(false);
-          }
-        };
-        document.addEventListener('click', handleClick);
-        return () => {
-          document.removeEventListener('click', handleClick);
-        };
-      }, []);
+        }
+
+    }, [location.pathname])
+
 
     return (
         <div ref={ref}>
 
-            <div className={`flex justify-between items-center ${(isOpen) ? 'text-themePink' : 'text-white'} cursor-pointer transition-all ease-in duration-500`} onClick={toggleMenu}>
+            <div className={`flex justify-between items-center ${(active) ? 'text-themePink' : 'text-white'} cursor-pointer transition-all ease-in duration-500`} onClick={toggleMenu}>
                 <div className="flex gap-2.5 items-center">
                     {icon}
                     <h3 className="text-sm">{routes.title}</h3>
                 </div>
-                <div>
-                    <svg
-                        className={`w-4 h-4 transform transition-transform duration-500 ${isOpen ? "rotate-90" : ""
-                            }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                        />
-                    </svg>
-                </div>
+                {routes.routes.length > 1 &&
+                    <div>
+                        <svg
+                            className={`w-4 h-4 transform transition-transform duration-500 ${isOpen ? "rotate-90" : ""
+                                }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                            />
+                        </svg>
+                    </div>}
             </div>
 
             <div

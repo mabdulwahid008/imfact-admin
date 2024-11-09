@@ -7,6 +7,8 @@ import CampaignList from "../pages/CampaignList";
 import OrderList from "../pages/OrderList";
 import Employees from "../pages/Employees";
 import Employee from "../pages/Employee";
+import { BsGearFill } from "react-icons/bs";
+import { MdPayments } from "react-icons/md";
 
 export const ROUTES = [
     {
@@ -170,5 +172,30 @@ export const ROUTES = [
                 },
             ]
         }
-    }
+    }, 
+    {
+        ID: 600,
+        icon: <BsGearFill className='text-lg' />,
+        title: 'Site Settings',
+        routes: [
+            {
+                title: 'Site Settings',
+                path: '/site-settings'
+            }
+        ],
+        component: <>Hellooo</>
+    },
+    {
+        ID: 700,
+        icon: <MdPayments className='text-lg' />,
+        title: 'Payments',
+        routes: [
+            {
+                title: 'Payments',
+                path: '/payments'
+            }
+        ],
+        component: <>Hellooo</>
+    },
+   
 ]
