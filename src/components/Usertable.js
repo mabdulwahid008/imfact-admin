@@ -39,9 +39,11 @@ export default Usertable
 const TableRow = ({ item, index }) => {
     const [isOn, setIsOn] = useState(item.approved);
     const [t] = useTranslation("global");
+    const [loading, setLoading] = useState(false);
 
     const approveorUnapprove = async() => {
         try {
+            setLoading(true);
             setIsOn(!isOn);
            const resp =  await approveUser(item._id);
            const res = await resp.json();
@@ -53,7 +55,9 @@ const TableRow = ({ item, index }) => {
             }
         } catch (error) {
             console.log(error);
+            setIsOn(!isOn);
         }
+        setLoading(false);
     }
     return (
         <tr key={index} className="hover:bg-themeGrey-400 border-b-[1px] border-themeGrey-100">
@@ -64,7 +68,8 @@ const TableRow = ({ item, index }) => {
             <td className='py-3 px-4'>
                 <button
                     onClick={approveorUnapprove}
-                    className={`w-12 h-6 rounded-full flex items-center p-1 px-1 transition-colors duration-300 ${isOn ? 'bg-green-500' : 'bg-gray-300'
+                    disabled={loading}
+                    className={`w-12 h-6 rounded-full disabled:cursor-not-allowed flex items-center p-1 px-1 transition-colors duration-300 ${isOn ? 'bg-green-500' : 'bg-gray-300'
                         }`}
                 >
                     <div
