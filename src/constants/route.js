@@ -9,6 +9,9 @@ import Employees from "../pages/Employees";
 import Employee from "../pages/Employee";
 import { BsGearFill } from "react-icons/bs";
 import { MdPayments } from "react-icons/md";
+import Payment from "../pages/Payment";
+import { GrMoney } from "react-icons/gr";
+import Balances from "../pages/Balances";
 
 export const ROUTES = [
     {
@@ -187,7 +190,7 @@ export const ROUTES = [
     },
     {
         ID: 700,
-        icon: <MdPayments className='text-lg' />,
+        icon: <MdPayments className='text-xl' />,
         title: 'Payments',
         routes: [
             {
@@ -195,7 +198,19 @@ export const ROUTES = [
                 path: '/payments'
             }
         ],
-        component: <>Hellooo</>
+        component: <Payment />
+    },
+    {
+        ID: 800,
+        icon: <GrMoney className='text-lg' />,
+        title: 'Creator Balances',
+        routes: [
+            {
+                title: 'Creator Balances',
+                path: '/creator-balances'
+            }
+        ],
+        component: <Balances />
     },
    
 ]

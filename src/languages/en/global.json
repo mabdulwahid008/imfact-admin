@@ -71,5 +71,13 @@
     "deleteConfirm": "Are you sure you want to delete this item?",
     "Brand": "Brand",
     "logintoImfact": "Login to Imfact",
-    "login": "Login"
+    "login": "Login",
+    "payments": "Payments",
+    "paymentId": "PaymentID",
+    "amount": "Amount",
+    "paymentType": "Payment Type",
+    "processed_date": "Processed Date",
+    "refund_amount": "Refund Amount",
+    "user": "User",
+    "balances": "Creator Balances"
 }
