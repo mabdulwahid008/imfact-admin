@@ -79,5 +79,13 @@
     "processed_date": "Processed Date",
     "refund_amount": "Refund Amount",
     "user": "User",
-    "balances": "Creator Balances"
+    "balances": "Creator Balances",
+    "creatorBalances": "Creator Balances",
+    "customerRefunds": "Customer Refunds",
+    "categoryList": "Category List",
+    "bankList": "Bank List",
+    "stateList": "State List",
+    "kor_name": "Korean Name",
+    "created_at": "Created On"
+
 }

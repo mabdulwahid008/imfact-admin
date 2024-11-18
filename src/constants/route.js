@@ -12,6 +12,7 @@ import { MdPayments } from "react-icons/md";
 import Payment from "../pages/Payment";
 import { GrMoney } from "react-icons/gr";
 import Balances from "../pages/Balances";
+import SiteSettings from "../pages/SiteSettings";
 
 export const ROUTES = [
     {
@@ -28,7 +29,7 @@ export const ROUTES = [
     },
     {
         ID: 100,
-        icon:  <FaRegRectangleList className='text-lg' />,
+        icon: <FaRegRectangleList className='text-lg' />,
         title: 'Manage Orders',
         routes: [
             {
@@ -52,12 +53,13 @@ export const ROUTES = [
         nested: {
             routes: [
                 {
-                    path:"/order-detail/:OrderID/:_id",
+                    title: 'Order Detail',
+                    path: "/order-detail/:OrderID/:_id",
                     component: <>Hello</>
                 }
             ]
         }
-        
+
     },
     {
         ID: 200,
@@ -97,7 +99,8 @@ export const ROUTES = [
         nested: {
             routes: [
                 {
-                    path:"/campaign-detail/:campaign_id/:_id",
+                    title: 'Campaign Detail',
+                    path: "/campaign-detail/:campaign_id/:_id",
                     component: <>Hello</>
                 }
             ]
@@ -121,7 +124,8 @@ export const ROUTES = [
         nested: {
             routes: [
                 {
-                    path:"/user/:nickname/:_id",
+                    title: 'User Detail',
+                    path: "/user/:nickname/:_id",
                     component: <UserDetail />
                 }
             ]
@@ -145,7 +149,8 @@ export const ROUTES = [
         nested: {
             routes: [
                 {
-                    path:"/user/:nickname/:_id",
+                    title: 'User Detail',
+                    path: "/user/:nickname/:_id",
                     component: <UserDetail />
                 }
             ]
@@ -170,23 +175,38 @@ export const ROUTES = [
         nested: {
             routes: [
                 {
-                    path:"/employee-edit/:name/:_id",
+                    title: 'Edit Employee',
+                    path: "/employee-edit/:name/:_id",
                     component: <Employee />
                 },
             ]
         }
-    }, 
+    },
     {
         ID: 600,
         icon: <BsGearFill className='text-lg' />,
         title: 'Site Settings',
         routes: [
             {
-                title: 'Site Settings',
-                path: '/site-settings'
+                title: 'Category List',
+                path: "/category-list",
+            },
+            {
+                title: 'Bank List',
+                path: "/bank-list",
+            },
+            {
+                title: 'State List',
+                path: "/state-list",
             }
+
         ],
-        component: <>Hellooo</>
+        component: <SiteSettings />,
+        nested: {
+            routes: [
+                
+            ]
+        }
     },
     {
         ID: 700,
@@ -203,14 +223,18 @@ export const ROUTES = [
     {
         ID: 800,
         icon: <GrMoney className='text-lg' />,
-        title: 'Creator Balances',
+        title: 'Balances',
         routes: [
             {
                 title: 'Creator Balances',
                 path: '/creator-balances'
-            }
+            },
+            {
+                title: 'Customer Refunds',
+                path: '/customer-refunds'
+            },
         ],
         component: <Balances />
     },
-   
+
 ]
