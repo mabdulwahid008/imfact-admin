@@ -14,6 +14,6 @@ export const getCampaigns = async (pageSize, pageNumber, searchText, status, cus
             token: getAdminToken()
         },
     });
-    const res = response.json();
+    const res = await response.json();
     return res;
 }

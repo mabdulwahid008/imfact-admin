@@ -1,11 +1,14 @@
+
+
 import React from 'react'
 import { formateDate } from '../utils/formateDate';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { deleteCategory } from '../services/catgories';
 import { toast } from 'react-toastify';
+import { deleteStates } from '../services/states';
 
-function CategoryTable({ data, setRefresh }) {
+function StateTable({ data, setRefresh }) {
     const [t] = useTranslation("global");
     const [loading, setLoading] = React.useState(false);
 
@@ -14,7 +17,7 @@ function CategoryTable({ data, setRefresh }) {
         if (!confirm) return
         try {
             setLoading(true);
-            const response = await deleteCategory(id);
+            const response = await deleteStates(id);
             const res = await response.json()
             if (response.status === 200) {
                 toast.success(res.message)
@@ -35,8 +38,7 @@ function CategoryTable({ data, setRefresh }) {
                     <tr className="text-left border-y-[1px] border-themeGrey-100">
                         <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t("Serial")}</th>
                         <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t("name")}</th>
-                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold whitespace-nowrap" >{t('kor_name')}</th>
-                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold whitespace-nowrap">{t('created_at')}</th>
+                        <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold whitespace-nowrap" >{t('cityCount')}</th>
                         <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t('action')}</th>
                     </tr>
                 </thead>
@@ -45,11 +47,10 @@ function CategoryTable({ data, setRefresh }) {
                         <tr key={index} className="hover:bg-themeGrey-400 border-b-[1px] border-themeGrey-100">
                             <td className="py-3 px-4 text-sm text-themeBlack-200">{index + 1}</td>
                             <td className="py-3 px-4 text-sm text-themeBlack-200">{item.name}</td>
-                            <td className="py-3 px-4 text-sm text-themeBlack-200">{item.kor_name}</td>
-                            <td className="py-3 px-4 text-sm text-themeBlack-200">{formateDate(item.createdAt)}</td>
+                            <td className="py-3 px-4 text-sm text-themeBlack-200">{item.cities?.length}</td>
 
                             <td className='px-4 py-1.5 flex-1 flex gap-1'>
-                                <Link to={`/edit-category/${item._id}`} className='outline-none min-w-2 text-sm text-white bg-themePink rounded-md px-4 py-2'>
+                                <Link to={`/edit-state/${item._id}`} className='outline-none min-w-2 text-sm text-white bg-themePink rounded-md px-4 py-2'>
                                     {t('Edit')}
                                 </Link>
                                 <button onClick={() => delteCate(item._id)} disabled={loading} className='outline-none text-sm text-white bg-red-400 rounded-md px-4 py-2'>
@@ -68,4 +69,5 @@ function CategoryTable({ data, setRefresh }) {
     )
 }
 
-export default CategoryTable
+export default StateTable
+

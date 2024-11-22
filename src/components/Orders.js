@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { getOrders } from '../services/getOrders';
 
-function Orders({ userId }) {
+function Orders({ userId, campaignId }) {
     const [pageNumber, setPageNumber] = React.useState(1);
     const [totalRecords, setTotalRecords] = React.useState(0);
     const [pageSize, setPageSize] = React.useState(25);
@@ -30,6 +30,8 @@ function Orders({ userId }) {
         title = t('activeOrders')
         status = 'Active'
     }
+    else if(laction.pathname.includes('/campaign-detail'))
+        title = t('campaignOrders')
     else 
         title = t('Orders')
 
@@ -42,7 +44,7 @@ function Orders({ userId }) {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await getOrders(pageSize, pageNumber, searchText, status, userId)
+                const res = await getOrders(pageSize, pageNumber, searchText, status, userId, campaignId)
                 console.log(res);
                 
                 setOrders(res.orders)
@@ -53,7 +55,7 @@ function Orders({ userId }) {
             }
         }
         getData()
-    }, [pageSize, pageNumber, searchText, status, userId])
+    }, [pageSize, pageNumber, searchText, status, userId, campaignId])
 
     useEffect(() => {
         setPageNumber(1)
@@ -68,7 +70,7 @@ function Orders({ userId }) {
             </div>
 
             <div className='px-10 flex flex-col gap-5'>
-                <OrderTable orders={orders}/>
+                <OrderTable orders={orders} isUserPage={userId?.length >0} isCampaignPage={campaignId?.length > 0}/>
                 <Pagination
                     showingResults={orders?.length}
                     pageSize={pageSize}

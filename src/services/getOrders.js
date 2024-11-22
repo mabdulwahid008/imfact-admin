@@ -6,14 +6,14 @@ import { getAdminToken } from "../utils/getAdminToken";
 
 
 
-export const getOrders = async (pageSize, pageNumber, searchText, status, creator) => {
-    const response = await fetch(`${BASE_URL}/order/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchText=${searchText}&status=${status}&creator=${creator}`, {
+export const getOrders = async (pageSize, pageNumber, searchText, status, creator, campaignId) => {
+    const response = await fetch(`${BASE_URL}/order/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchText=${searchText}&status=${status}&creator=${creator}&campaign=${campaignId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             token: getAdminToken()
         },
     });
-    const res = response.json();
+    const res = await response.json();
     return res;
 }

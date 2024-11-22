@@ -14,6 +14,6 @@ export const getUserInfo = async (userId) => {
             token: getAdminToken()
         },
     });
-    const res = response.json();
+    const res = await response.json();
     return res;
 }

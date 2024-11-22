@@ -1,11 +1,13 @@
+
+
 import { BASE_URL } from "../constants";
 import { getAdminToken } from "../utils/getAdminToken";
 
 
 
 
-export const getUserlist = async ({ pageNumber, pageSize, searchText, role, status }) => {
-    const response = await fetch(`${BASE_URL}/user/userlist/?pageNumber=${pageNumber}&pageSize=${pageSize}&searchText=${searchText}&role=${role}&status=${status}`, {
+export const getCampaignById = async (_id) => {
+    const response = await fetch(`${BASE_URL}/campaign/${_id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -13,5 +15,6 @@ export const getUserlist = async ({ pageNumber, pageSize, searchText, role, stat
         },
     });
     const res = await response.json();
-    return res;
+    
+    return res.campaign;
 }

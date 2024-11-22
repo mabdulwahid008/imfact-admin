@@ -4,7 +4,7 @@ import Orders from '../components/Orders'
 function OrderList() {
   return (
     <div>
-      <Orders userId={''} />
+      <Orders userId={''} campaignId={''} />
     </div>
   )
 }

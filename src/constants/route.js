@@ -13,6 +13,11 @@ import Payment from "../pages/Payment";
 import { GrMoney } from "react-icons/gr";
 import Balances from "../pages/Balances";
 import SiteSettings from "../pages/SiteSettings";
+import Category from "../pages/Category";
+import Bank from "../pages/Bank";
+import State from "../pages/State";
+import Order from "../pages/Order";
+import Campaign from "../pages/Campaign";
 
 export const ROUTES = [
     {
@@ -55,7 +60,7 @@ export const ROUTES = [
                 {
                     title: 'Order Detail',
                     path: "/order-detail/:OrderID/:_id",
-                    component: <>Hello</>
+                    component: <Order />
                 }
             ]
         }
@@ -101,7 +106,7 @@ export const ROUTES = [
                 {
                     title: 'Campaign Detail',
                     path: "/campaign-detail/:campaign_id/:_id",
-                    component: <>Hello</>
+                    component: <Campaign />
                 }
             ]
         }
@@ -204,7 +209,36 @@ export const ROUTES = [
         component: <SiteSettings />,
         nested: {
             routes: [
-                
+                {
+                    title: 'Add Category',
+                    path: '/add-category',
+                    component: <Category />
+                },
+                {
+                    title: 'Edit Category',
+                    path: '/edit-category/:_id',
+                    component: <Category />
+                },
+                {
+                    title: 'Add Bank',
+                    path: '/add-bank',
+                    component: <Bank />
+                },
+                {
+                    title: 'Edit Bank',
+                    path: '/edit-bank/:_id',
+                    component: <Bank />
+                },
+                {
+                    title: 'Add State',
+                    path: '/add-state',
+                    component: <State />
+                },
+                {
+                    title: 'Edit State',
+                    path: '/edit-state/:_id',
+                    component: <State />
+                },
             ]
         }
     },

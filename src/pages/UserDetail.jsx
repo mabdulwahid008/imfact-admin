@@ -181,9 +181,9 @@ function UserDetail() {
             </div>
             <div className='flex-1'>
               {user.role === 'creator' ? 
-                <Orders userId={user?._id || ''} />
+                <Orders userId={user?._id || ''} campaignId={''} />
               :
-                <Campaigns userId={user?._id || ''}  />
+                <Campaigns userId={user?._id || ''}/>
               }
             </div>
           </div>
