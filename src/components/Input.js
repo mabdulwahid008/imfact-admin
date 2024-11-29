@@ -8,6 +8,7 @@ function Input({
     name,
     label,
     required = true,
+    className=''
 }) {
   return (
     <div className='flex flex-col gap-1 w-full'>
@@ -19,7 +20,7 @@ function Input({
             onChange={onChange}
             name={name}
             required={required}
-            className='border-[1px] border-themeGrey-70 rounded-lg px-4 py-3 outline-none text-themeGrey-300 text-sm shadow-sm'
+            className={`border-[1px] border-themeGrey-70 rounded-lg px-4 py-3 outline-none text-themeGrey-300 text-sm shadow-sm ${className}`}
         />
     </div>
   )

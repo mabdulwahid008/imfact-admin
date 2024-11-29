@@ -18,6 +18,8 @@ import Bank from "../pages/Bank";
 import State from "../pages/State";
 import Order from "../pages/Order";
 import Campaign from "../pages/Campaign";
+import Fee from "../components/Fee";
+import Dashboard from "../pages/Dashboard";
 
 export const ROUTES = [
     {
@@ -30,7 +32,7 @@ export const ROUTES = [
                 path: '/dashboard'
             }
         ],
-        component: <>Hellooo</>
+        component: <Dashboard/>
     },
     {
         ID: 100,
@@ -203,6 +205,10 @@ export const ROUTES = [
             {
                 title: 'State List',
                 path: "/state-list",
+            },
+            {
+                title: 'Fees',
+                path: "/fee-list",
             }
 
         ],
@@ -239,6 +245,11 @@ export const ROUTES = [
                     path: '/edit-state/:_id',
                     component: <State />
                 },
+                {
+                    title: 'Fees',
+                    path: "/fee/fee-list",
+                    component: <Fee />
+                }
             ]
         }
     },

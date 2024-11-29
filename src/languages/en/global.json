@@ -142,7 +142,22 @@
     "grandTotal": "Grand Total",
     "levelmedia": "Level/Media",
     "creatorLevel": "Creator Level",
-    "holdCampaign": "Hold Campaign"
+    "holdCampaign": "Hold Campaign",
+    "AdjustFees": "Adjust Media Fee",
+    "otherFee": "Other Fees",
+    "totalCampaigns": "Total Campaigns",
+    "totalOrders": "Total Orders",
+    "totalCustomers": "Total Customers",
+    "totalCreators": "Total Creators",
+    "users": "Users",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "fee": "Fee Stats",
+    "month": "Month",
+    "year": "Year",
+    "today": "Today"
 }
 
 

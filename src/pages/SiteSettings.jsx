@@ -11,6 +11,7 @@ import BankTable from '../components/BankTable';
 import Button from '../components/Button';
 import StateTable from '../components/StateTable';
 import { getStates } from '../services/states';
+import Fee from '../components/Fee';
 
 function SiteSettings() {
     const [pageNumber, setPageNumber] = React.useState(1);
@@ -95,8 +96,12 @@ function SiteSettings() {
             navigate('/add-state')
     }
 
+    if(location.pathname === '/fee-list'){
+        return <Fee />
+    }
+
     return (
-        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 shadow-sm w-2/3'>
+        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 w-2/3'>
             <div className='flex justify-between items-center px-10'>
                 <h2 className='text-themeBlack-300 text-lg font-bold mb-0'>{title}</h2>
                 <span className='w-1/5'>

@@ -62,7 +62,7 @@ function Orders({ userId, campaignId }) {
     }, [pageSize])
 
   return (
-    <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 shadow-sm'>
+    <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5'>
             <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0'>{title}</h2>
             <div className='flex justify-between items-center px-10'>
                 <PageSize pageSize={pageSize} setPageSize={setPageSize}/>
