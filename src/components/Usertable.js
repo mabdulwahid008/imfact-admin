@@ -7,8 +7,8 @@ import { useTranslation } from 'react-i18next';
 function Usertable({ users }) {
     const [t] = useTranslation("global");
     return (
-        <div className="overflow-x-auto">
-            <table className="min-w-full ">
+        <div className="overflow-x-auto sm:overflow-hidden">
+            <table className="min-w-full sm:hidden">
                 <thead>
                     <tr className="text-left border-y-[1px] border-themeGrey-100">
                         <th className="py-3 px-4 text-themeBlack-200 text-sm font-semibold">{t('Serial')}</th>
@@ -25,6 +25,34 @@ function Usertable({ users }) {
                     ))}
                 </tbody>
             </table>
+
+
+            <div className="sm:flex flex-col gap-2 hidden">
+    {users.map((item, index) => (
+        <Link to={`/user/${item.nickname}/${item._id}`} className="flex flex-col bg-white gap-2 border-themeGrey-100 border-[1px] rounded-xl p-4">
+
+            <div className="flex gap-1 justify-between">
+                <p className="text-xs text-themeBlack-200 mr-2">{index + 1}.</p>
+                <p className="text-xs text-themeBlack-200 flex-1">{item.nickname}</p>
+                <p className={`text-xs text-white ${item.approved ? 'bg-green-500' : 'bg-gray-300'} rounded-lg p-1 pt-0.5 text-right`}>
+                    {item.approved ? t('Approved') : t('Pending')}
+                </p>
+            </div>
+
+            <div className="flex justify-between items-center">
+                <p className="text-xs text-themeBlack-200">{t('Email')}</p>
+                <p className="text-xs text-themeBlack-200">{item.email}</p>
+            </div>
+            <div className="flex justify-between items-center">
+                <p className="text-xs text-themeBlack-200">{t('Phone')}</p>
+                <p className="text-xs text-themeBlack-200">{item.phone}</p>
+            </div>
+
+        </Link>
+    ))}
+</div>
+
+
             {users.length === 0 && 
                     <p className='w-full text-center text-sm text-themeBlack-200 font-medium py-3 border-themeGrey-100 border-b-[1px]'>
                         {t("nodata")}
@@ -86,3 +114,5 @@ const TableRow = ({ item, index }) => {
         </tr>
     )
 }
+
+
