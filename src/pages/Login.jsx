@@ -33,7 +33,7 @@ function Login() {
 
     return (
         <div className='flex justify-center items-center h-screen'>
-            <div className='px-6 py-6 w-1/3 rounded-xl border-[1px] border-themeGrey-70 shadow-sm bg-white'>
+            <div className='px-6 py-6 w-1/3 sm:w-[90%] rounded-xl border-[1px] border-themeGrey-70 shadow-sm bg-white'>
                 <div className='flex justify-start items-center gap-4'>
                     <img
                         src={'/logo.png'}

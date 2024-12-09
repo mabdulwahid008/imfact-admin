@@ -52,14 +52,14 @@ function Users() {
 
 
     return (
-        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5'>
-            <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0'>{title}</h2>
-            <div className='flex justify-between items-center px-10'>
+        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-4 sm:rounded-lg'>
+            <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0 sm:px-5'>{title}</h2>
+            <div className='flex justify-between items-center px-10 sm:px-5 sm:gap-2 sm:w-full'>
                 <PageSize pageSize={pageSize} setPageSize={setPageSize}/>
                 <SearchBar searchText={searchText} setSearchText={setSearchText} />
             </div>
 
-            <div className='px-10 flex flex-col gap-5'>
+            <div className='px-10 flex flex-col gap-5 sm:px-5'>
                 <Usertable users={users}/>
                 <Pagination
                     showingResults={users.length}

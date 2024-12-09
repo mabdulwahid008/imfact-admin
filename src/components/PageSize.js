@@ -13,7 +13,7 @@ function PageSize({ pageSize, setPageSize }) {
                 <option>75</option>
                 <option>100</option>
             </select>
-            <p className='text-sm text-themeBlack-200'>entries</p>
+            <p className='text-sm text-themeBlack-200 sm:hidden'>entries</p>
         </div>
     );
 }

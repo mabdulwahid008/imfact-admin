@@ -64,9 +64,9 @@ function Order() {
             {!order ?
                 <Loader />
                 :
-                <div className='flex gap-10'>
+                <div className='flex gap-10 sm:flex-col sm:gap-4'>
 
-                    <div className='flex-1 rounded-lg overflow-hidden'>
+                    <div className='flex-1 rounded-lg overflow-hidden sm:rounded-lg'>
                         <h2 className='bg-themePink/20 px-5 py-3 text-sm font-medium text-themeBlack-300'>
                             {t('OrderDetail')}
                         </h2>
@@ -119,7 +119,7 @@ function Order() {
                         </div>
                     </div>
 
-                    <div className='flex-1 rounded-lg overflow-hidden'>
+                    <div className='flex-1 rounded-lg overflow-hidden sm:rounded-lg'>
                         <h2 className='bg-themePink/20 px-5 py-3 text-sm font-medium text-themeBlack-300'>
                             {t('campaignDetail')}
                         </h2>
@@ -138,7 +138,7 @@ function Order() {
                                         <p className='text-themeBlack-300 text-xs font-normal'>{t('CampaignID')}:</p>
                                         <p className='text-themeBlack-300 text-xs font-normal'>{order.campaign.campaign_id}</p>
                                     </div>
-                                    <div className='flex justify-between items-center w-full gap-1'>
+                                    <div className='flex justify-between items-center w-full gap-1 sm:flex-wrap sm:justify-start'>
                                         <p className='text-themeBlack-300 text-xs font-normal px-2 py-1 border-themeGrey-70 rounded-md border-[1px]'>{order.campaign.campaign_type}</p>
                                         <p className='text-themeBlack-300 text-xs font-normal px-2 py-1 border-themeGrey-70 rounded-md border-[1px]'>{sietLang === 'eng' ? order.campaign.category.name : order.campaign.category.kor_name}</p>
                                         <p className='text-themeBlack-300 text-xs font-normal px-2 py-1 border-themeGrey-70 rounded-md border-[1px]'>{order.campaign.campaign_option}</p>
@@ -202,7 +202,7 @@ function Order() {
                         </div>
                     </div>
 
-                    <div className='flex-1 rounded-lg overflow-hidden'>
+                    <div className='flex-1 rounded-lg overflow-hidden sm:rounded-lg'>
                         <h2 className='bg-themePink/20 px-5 py-3 text-sm font-medium text-themeBlack-300'>
                             {t('creatorDetail')}
                         </h2>

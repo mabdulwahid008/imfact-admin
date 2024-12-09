@@ -97,8 +97,8 @@ function Fee() {
             {!levels ?
                 <Loader />
                 :
-                <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 w-[60%]'>
-                    <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0'>{(t('AdjustFees'))}</h2>
+                <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-4 sm:rounded-lg w-[60%]'>
+                    <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0 sm:px-5'>{(t('AdjustFees'))}</h2>
                     {levels.map((level, index) => (
                         <div key={index} className='flex flex-col gap-2 px-10'>
                             <h2 className='text-sm font-semibold text-themeBlack-900'>{level.name}</h2>

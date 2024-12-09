@@ -34,8 +34,8 @@ function UserDetail() {
   return (
     <>
       {user ?
-        <div className='flex flex-col gap-5'>
-          <div className='grid grid-cols-4 gap-5 flex-wrap'>
+        <div className='flex flex-col gap-5 sm:gap-4'>
+          <div className='grid grid-cols-4 gap-5 sm:grid-cols-2 sm:gap-4'>
             <Card
               title={user?.role === 'customer' ? t('totalCompletedCampaigns') : t('totalCompletedOrders')}
               value={user?.role === 'customer' ? user?.totalCompletedCampaigns : user?.totalCompletedOrders || 0}
@@ -67,8 +67,8 @@ function UserDetail() {
               />
             </>}
           </div>
-          <div className='flex justify-start items-start gap-5'>
-            <div className='w-1/4 flex flex-col gap-3'>
+          <div className='flex justify-start items-start gap-5 sm:gap-4 sm:flex-col'>
+            <div className='w-1/4 flex flex-col gap-3 sm:w-full'>
               <UserCard user={user} />
               <Accordion>
                 {({ isOpen, toggleAccordion }) => (

@@ -19,26 +19,26 @@ function Dashboard() {
   }, [])
 
   return (
-    <div className='flex flex-col gap-6'>
-      <div className='flex gap-6'>
-        <Card title={t('totalCampaigns')} value={data.totalCampaigns || 0} />
-        <Card title={t('totalOrders')} value={data.totalOrders || 0} />
-        <Card title={t('totalCustomers')} value={data.totalCustomers || 0} />
-        <Card title={t('totalCreators')} value={data.totalCreator || 0} />
+    <div className='flex flex-col gap-6 sm:gap-4'>
+      <div className='flex gap-6 sm:flex-wrap sm:gap-4'>
+        <Card title={t('totalCampaigns')} value={data.totalCampaigns || 0} classes={'sm:w-[47.5%]'}/>
+        <Card title={t('totalOrders')} value={data.totalOrders || 0} classes={'sm:w-[47.5%]'}/>
+        <Card title={t('totalCustomers')} value={data.totalCustomers || 0} classes={'sm:w-[47.5%]'}/>
+        <Card title={t('totalCreators')} value={data.totalCreator || 0} classes={'sm:w-[47.5%]'}/>
       </div>
-      <div className='flex justify-between items-stretch gap-6'>
-        <div className='w-[35%]'>
+      <div className='flex justify-between items-stretch gap-6 sm:flex-wrap sm:gap-4'>
+        <div className='w-[35%] sm:w-full sm:hidden'>
           {/* <FeeChart /> */}
         </div>
-        <div className='w-[65%]'>
+        <div className='w-[65%] sm:w-full'>
           <CampaignChart />
         </div>
       </div>
-      <div className='flex justify-between items-stretch gap-6'>
-        <div className='w-[65%]'>
+      <div className='flex justify-between items-stretch gap-6 sm:flex-wrap sm:flex-col-reverse sm:gap-4'>
+        <div className='w-[65%] sm:w-full'>
           <UserChart />
         </div>
-        <div className='w-[35%]'>
+        <div className='w-[35%] sm:w-full'>
           <FeeChart />
         </div>
       </div>
