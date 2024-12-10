@@ -41,18 +41,18 @@ function OrderTable({ orders, isCampaignPage, isUserPage }) {
                         <div className='flex gap-1 justify-between'>
                             <p className='text-xs text-themeBlack-200 mr-2'>{index + 1}.</p>
                             <p className='text-xs text-themeBlack-200 flex-1'>#{item.OrderID}</p>
-                            <p className='text-xs text-white bg-themePink/80 rounded-lg p-1 pt-0.5 text-right'>{item.status}</p>
+                            <p className='text-xs text-themePink text-right'>{item.status}</p>
                         </div>
                         <div className='flex justify-between items-center'>
-                            <p className='text-xs text-themeBlack-200'>Creater</p>
+                            <p className='text-xs text-themeBlack-200'>{t("CreatorID")}</p>
                             <p className='text-xs text-themeBlack-200'>{item.creatorID}</p>
                         </div>
                         <div className='flex justify-between items-center'>
-                            <p className='text-xs text-themeBlack-200'>Customer</p>
+                            <p className='text-xs text-themeBlack-200'>{t("CustomerID")}</p>
                             <p className='text-xs text-themeBlack-200'>{item.customerID}</p>
                         </div>
                         <div className='flex justify-between items-center'>
-                            <p className='text-xs text-themeBlack-200'>Campaign</p>
+                            <p className='text-xs text-themeBlack-200'>{t("CampaignID")}</p>
                             <p className='text-xs text-themeBlack-200'>{item.campaign?.campaign_id}</p>
                         </div>
                         {/* <Link to={`/order-detail/${item.OrderID}/${item._id}`} className='outline-none text-center min-w-2 text-sm text-white bg-themePink rounded-md px-4 py-2'>

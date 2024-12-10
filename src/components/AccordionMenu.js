@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
-const AccordionMenu = ({ icon, routes }) => {
+const AccordionMenu = ({ icon, routes, setOpen }) => {
     const [isOpen, setIsOpen] = useState(false); 
     const [active, setActive] = useState(false);
 
@@ -11,6 +11,7 @@ const AccordionMenu = ({ icon, routes }) => {
     const toggleMenu = () => {
         if(routes.routes.length === 1){
             navigate(`${routes.routes[0].path}`)
+            setOpen(false)
             return;
         }
         setIsOpen(true);
@@ -66,7 +67,7 @@ const AccordionMenu = ({ icon, routes }) => {
 
                 <div className="flex flex-col gap-2 py-0.5">
                     {routes.routes.map((route, index) => (
-                        <NavLink to={`${route.path}`} className={'text-white hover:text-themePink text-sm'}>{route.title}</NavLink>
+                        <NavLink to={`${route.path}`} onClick={() => setOpen(false)} className={'text-white hover:text-themePink text-sm'}>{route.title}</NavLink>
                     ))}
                 </div>
             </div>

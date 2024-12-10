@@ -37,7 +37,7 @@ function CampaignTable({ campaigns }) {
                         <div className="flex gap-1 justify-between">
                             <p className="text-xs text-themeBlack-200 mr-2">{index + 1}.</p>
                             <p className="text-xs text-themeBlack-200 flex-1">#{item.campaign_id}</p>
-                            <p className="text-xs text-white bg-themePink/80 rounded-lg p-1 pt-0.5 text-right">{item.status}</p>
+                            <p className="text-xs text-themePink text-right">{item.status}</p>
                         </div>
                        
                        

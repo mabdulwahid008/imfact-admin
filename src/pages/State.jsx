@@ -63,8 +63,8 @@ function State() {
     {_id && loading ?
         <Loader />
         :
-        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-4 sm:rounded-lg w-1/2 shadow-sm'>
-            <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0 sm:px-5'>{_id? t('editState') : t('createState')}</h2>
+        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-2 sm:pb-10 sm:rounded-lg sm:bg-transparent sm:p-0 w-1/2 shadow-sm'>
+            <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0 sm:px-0'>{_id? t('editState') : t('createState')}</h2>
             <div className='px-10 mt-0 flex flex-col gap-2'>
                     <Input
                         label={t('name')}
