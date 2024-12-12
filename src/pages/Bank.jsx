@@ -60,9 +60,9 @@ function Bank() {
     {_id && loading ?
         <Loader />
         :
-        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-2 sm:pb-10 sm:rounded-lg sm:bg-transparent sm:p-0 w-1/2 shadow-sm'>
-            <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0 sm:px-0'>{_id? t('editBank') : t('createBank')}</h2>
-            <form onSubmit={onSubmit} className='px-10 mt-0 flex flex-col gap-2'>
+        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-2 sm:pb-10 sm:rounded-lg sm:bg-white sm:w-full sm:p-0 sm:py-6 w-1/2 shadow-sm'>
+            <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0 sm:px-6'>{_id? t('editBank') : t('createBank')}</h2>
+            <form onSubmit={onSubmit} className='px-10 mt-0 flex flex-col gap-2 sm:px-6'>
                     <Input
                         label={t('eng_name')}
                         placeholder={t('eng_name')}

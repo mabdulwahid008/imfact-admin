@@ -97,13 +97,13 @@ function Fee() {
             {!levels ?
                 <Loader />
                 :
-                <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-2 sm:pb-10 sm:rounded-lg sm:bg-transparent sm:p-0 w-[60%]'>
-                    <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0 sm:px-0'>{(t('AdjustFees'))}</h2>
+                <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-2 sm:pb-10 sm:rounded-lg sm:bg-white sm:w-full sm:py-6 sm:p-0 w-[60%]'>
+                    <h2 className='text-themeBlack-300 text-lg font-bold px-10 mb-0 sm:px-6'>{(t('AdjustFees'))}</h2>
                     {levels.map((level, index) => (
-                        <div key={index} className='flex flex-col gap-2 px-10'>
+                        <div key={index} className='flex flex-col gap-2 px-10 sm:px-6'>
                             <h2 className='text-sm font-semibold text-themeBlack-900'>{level.name}</h2>
-                            <div className='flex gap-4'>
-                                <div className='flex flex-col gap-1 flex-1'>
+                            <div className='flex gap-4 sm:flex-col sm:gap-2'>
+                                <div className='flex flex-col gap-1 flex-1 sm:flex-shrink-0'>
                                     <Input
                                         name='youtube_shorts_amount'
                                         type='number'
@@ -111,7 +111,7 @@ function Fee() {
                                         className='text-center'
                                         onChange={(e) => onChange(e, index)}
                                     />
-                                    <p className='flex gap-1 items-center justify-center'>
+                                    <p className='flex gap-1 items-center justify-center sm:justify-start'>
                                         <img
                                             src={PLATFORMS.find((platform) => platform.key === 'youtube_shorts').logo}
                                             className='w-5 h-5'
@@ -126,7 +126,7 @@ function Fee() {
                                         </p>
                                     </p>
                                 </div>
-                                <div className='flex flex-col gap-1 flex-1'>
+                                <div className='flex flex-col gap-1 flex-1 sm:flex-auto'>
                                     <Input
                                         name='instagram_reels_amount'
                                         type='number'
@@ -134,7 +134,7 @@ function Fee() {
                                         className='text-center'
                                         onChange={(e) => onChange(e, index)}
                                     />
-                                    <p className='flex gap-1 items-center justify-center'>
+                                    <p className='flex gap-1 items-center justify-center sm:justify-start'>
                                         <img
                                             src={PLATFORMS.find((platform) => platform.key === 'instagram_reels').logo}
                                             className='w-5 h-5'
@@ -149,7 +149,7 @@ function Fee() {
                                         </p>
                                     </p>
                                 </div>
-                                <div className='flex flex-col gap-1 flex-1'>
+                                <div className='flex flex-col gap-1 flex-1 sm:flex-auto'>
                                     <Input
                                         name='tiktok_amount'
                                         type='number'
@@ -157,7 +157,7 @@ function Fee() {
                                         className='text-center'
                                         onChange={(e) => onChange(e, index)}
                                     />
-                                    <p className='flex gap-1 items-center justify-center'>
+                                    <p className='flex gap-1 items-center justify-center sm:justify-start'>
                                         <img
                                             src={PLATFORMS.find((platform) => platform.key === 'tiktok').logo}
                                             className='w-5 h-5'
@@ -176,10 +176,10 @@ function Fee() {
                             {index < levels.length - 1 && <hr className='border-themeGrey-70 mt-2 border-t-[1px] border-b-0 w-full' />}
                         </div>
                     ))}
-                    <h2 className='text-themeBlack-300 text-lg font-bold px-10 mt-5'>{(t('otherFee'))}</h2>
+                    <h2 className='text-themeBlack-300 text-lg font-bold px-10 mt-5 sm:px-6'>{(t('otherFee'))}</h2>
 
-                    <div className='flex gap-4 px-10 w-full'>
-                        <div className='flex flex-col gap-1 flex-1'>
+                    <div className='flex gap-4 px-10 w-full sm:flex-col sm:px-6'>
+                        <div className='flex flex-col gap-1 flex-1 sm:flex-auto'>
                             <h2 className='text-sm font-semibold text-themeBlack-900'>{t('review_amount')}</h2>
                             <Input
                                 name='review_amount'
@@ -189,7 +189,7 @@ function Fee() {
                                 onChange={handleOtherFee}
                             />
                         </div>
-                        <div className='flex flex-col gap-1 flex-1'>
+                        <div className='flex flex-col gap-1 flex-1 sm:flex-auto'>
                             <h2 className='text-sm font-semibold text-themeBlack-900'>{t('action_amount')}</h2>
                             <Input
                                 name='action_amount'
@@ -199,7 +199,7 @@ function Fee() {
                                 onChange={handleOtherFee}
                             />
                         </div>
-                        <div className='flex flex-col gap-1 flex-1'>
+                        <div className='flex flex-col gap-1 flex-1 sm:flex-auto'>
                             <h2 className='text-sm font-semibold text-themeBlack-900'>{t('deliverycharges')}</h2>
                             <Input
                                 name='delivery_amount'
@@ -210,7 +210,7 @@ function Fee() {
                             />
                         </div>
                     </div>
-                    <span className='w-1/3 px-10'>
+                    <span className='w-1/3 px-10 sm:px-6 sm:w-1/2'>
                         <Button 
                             text={t('update')}
                             onClick={onSubmit}

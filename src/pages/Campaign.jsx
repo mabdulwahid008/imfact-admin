@@ -77,9 +77,9 @@ function Campaign() {
             {!campaign ? <Loader />
                 :
 
-                <div class="grid grid-cols-3 gap-10 p-6 bg-gray-100">
-                    <div class="col-span-2 grid grid-rows-2 gap-10">
-                        <div class="grid grid-cols-2 gap-10">
+                <div class="grid grid-cols-3 sm:grid-cols-1 gap-10 sm:gap-4 p-6 sm:p-0 bg-gray-100">
+                    <div class="col-span-2 grid grid-rows-2 sm:grid-cols-1 sm:grid-rows-1 gap-10 sm:gap-4">
+                        <div class="grid grid-cols-2 gap-10 sm:gap-4 sm:grid-cols-1">
                             <div className='flex-1 rounded-lg overflow-hidden'>
                                 <h2 className='bg-themePink/20 px-5 py-3 text-sm font-medium text-themeBlack-300'>
                                     {t('campaignDetail')}
@@ -101,8 +101,9 @@ function Campaign() {
                                                 <p className='text-themeBlack-300 text-xs font-normal px-2 py-1 border-themeGrey-70 rounded-md border-[1px]'>{sietLang === 'eng' ? campaign.category.name : campaign.category.kor_name}</p>
                                                 <p className='text-themeBlack-300 text-xs font-normal px-2 py-1 border-themeGrey-70 rounded-md border-[1px]'>{campaign.campaign_option}</p>
                                                 <p className='text-themeBlack-300 text-xs font-normal px-2 py-1 border-themeGrey-70 rounded-md border-[1px]'>{campaign.campaign_method}</p>
+                                                <p className='text-themeBlack-300 text-xs font-normal text-right w-full hidden sm:flex'>#{campaign.campaign_id}</p>
 
-                                                <p className='text-themeBlack-300 text-xs font-normal text-right w-full -mt-8'>#{campaign.campaign_id}</p>
+                                                <p className='text-themeBlack-300 text-xs font-normal text-right w-full block sm:hidden -mt-8'>#{campaign.campaign_id}</p>
 
                                             </div>
                                         </div>
@@ -145,7 +146,7 @@ function Campaign() {
                                 </div>
 
                             </div>
-                            <div className='flex-1 flex flex-col gap-10'>
+                            <div className='flex-1 flex flex-col gap-10 sm:gap-4'>
                                 <div className='rounded-lg overflow-hidden'>
                                     <h2 className='bg-themePink/20 px-5 py-3 text-sm font-medium text-themeBlack-300'>
                                         {t('payment_Fee')}
@@ -232,7 +233,7 @@ function Campaign() {
                         </div>
                     </div>
                     <div class="col-span-1">
-                        <div className='flex flex-col gap-10'>
+                        <div className='flex flex-col gap-10 sm:gap-4'>
                             <div className='flex-1 rounded-lg overflow-hidden'>
                                 <h2 className='bg-themePink/20 px-5 py-3 text-sm font-medium text-themeBlack-300'>
                                     {t('creatorDetail')}
