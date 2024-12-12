@@ -101,19 +101,19 @@ function SiteSettings() {
     }
 
     return (
-        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-4 sm:rounded-lg w-2/3'>
-            <div className='flex justify-between items-center px-10 sm:px-5 sm:gap-2 sm:w-full'>
+        <div className='rounded-xl py-6 bg-white flex-1 flex flex-col gap-5 sm:gap-2 sm:pb-10 sm:rounded-lg sm:bg-transparent sm:p-0 w-2/3 sm:w-full'>
+            <div className='flex justify-between items-center px-10 sm:px-0 sm:gap-2 sm:w-full'>
                 <h2 className='text-themeBlack-300 text-lg font-bold mb-0'>{title}</h2>
-                <span className='w-1/5'>
+                <span className='w-1/5 sm:w-auto'>
                     <Button text={t('addnew')} onClick={redirect} />
                 </span>
             </div>
-            <div className='flex justify-between items-center px-10 sm:px-5 sm:gap-2 sm:w-full'>
+            <div className='flex justify-between items-center px-10 sm:px-0 sm:gap-2 sm:w-full'>
                 <PageSize pageSize={pageSize} setPageSize={setPageSize} />
                 <SearchBar searchText={searchText} setSearchText={setSearchText} />
             </div>
 
-            <div className='px-10 flex flex-col gap-5 sm:px-5'>
+            <div className='px-10 flex flex-col gap-5 sm:px-0'>
                 {location.pathname === '/category-list' && <CategoryTable data={data} setRefresh={setRefresh} />}
                 {location.pathname === '/bank-list' && <BankTable data={data} setRefresh={setRefresh}/>}
                 {location.pathname === '/state-list' && <StateTable data={data} setRefresh={setRefresh}/>}
